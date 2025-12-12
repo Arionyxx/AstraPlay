@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "target": "ES2020",
+    "lib": ["ES2020"],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "outDir": "dist-electron",
+    "noEmit": false,
+    "jsx": "preserve",
+    "types": ["node", "better-sqlite3"]
+  },
+  "include": [
+    "electron/**/*.ts"
+  ],
+  "exclude": ["node_modules", "dist-electron", "dist-renderer", "src"]
+}

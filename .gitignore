@@ -1,0 +1,65 @@
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-error.log*
+
+# Build outputs
+dist-electron/
+dist-renderer/
+release/
+out/
+build/
+
+# Next.js (legacy)
+.next/
+next-env.d.ts
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Testing
+coverage/
+.nyc_output/
+
+# Logs
+logs/
+*.log
+
+# OS
+Thumbs.db
+desktop.ini
+
+# Electron
+*.asar
+*.exe
+*.dmg
+*.deb
+*.rpm
+*.AppImage
+*.snap
+
+# Database
+*.db
+*.db-shm
+*.db-wal
+
+# Credentials (never commit!)
+credentials.json
+config.local.json
+
+# TypeScript
+*.tsbuildinfo
+
+# Temporary files
+tmp/
+temp/
