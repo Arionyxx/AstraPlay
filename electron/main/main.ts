@@ -49,7 +49,7 @@ async function createWindow(): Promise<void> {
     await mainWindow.loadURL('http://localhost:3000');
     mainWindow.webContents.openDevTools();
   } else {
-    await mainWindow.loadFile(path.join(__dirname, '../../renderer/index.html'));
+    await mainWindow.loadFile(path.join(__dirname, '../../dist-renderer/index.html'));
   }
 
   mainWindow.on('closed', () => {
