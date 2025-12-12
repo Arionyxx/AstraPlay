@@ -41,7 +41,16 @@ async function createWindow(): Promise<void> {
     show: false,
   });
 
+  // Set up timeout to show window if ready-to-show doesn't fire
+  const showTimeout = setTimeout(() => {
+    if (mainWindow && !mainWindow.isVisible()) {
+      console.log('[Main] ready-to-show timeout, showing window manually');
+      mainWindow.show();
+    }
+  }, 5000);
+
   mainWindow.once('ready-to-show', () => {
+    clearTimeout(showTimeout);
     mainWindow?.show();
   });
 
@@ -51,6 +60,10 @@ async function createWindow(): Promise<void> {
   } else {
     await mainWindow.loadFile(path.join(__dirname, '../../dist-renderer/index.html'));
   }
+
+  mainWindow.webContents.on('did-fail-load', (event, errorCode, errorDescription) => {
+    console.error('[Main] Page load failed:', errorCode, errorDescription);
+  });
 
   mainWindow.on('closed', () => {
     mainWindow = null;
